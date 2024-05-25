@@ -12,7 +12,7 @@ int main()
   for (int i = 0; i < 9; ++i) {   // rows
     for (int j = 0; i < 9; ++j) { // column
       file >> board[i][j];
-      cout << board[i][j] << " ";
+      cout << board[i][j] << " ... ";
     }
     cout << endl;
   }
