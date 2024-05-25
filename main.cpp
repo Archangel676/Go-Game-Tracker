@@ -11,12 +11,12 @@ int main()
   file.open("go.txt");
 
   for (int i = 0; i < 9; ++i) { // rows
-    string rowData;
-    getline(file, rowData);
-    stringstream row(rowData);
+    // string rowData;
+    // getline(file, rowData);
+    // stringstream row(rowData);
 
     for (int j = 0; j < 9; ++j) { // column
-      row >> board[i][j];
+      file >> board[i][j];
       cout << board[i][j] << " ... ";
     }
     cout << "SPACE";
