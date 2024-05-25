@@ -5,14 +5,12 @@ using namespace std;
 
 int main()
 {
-  int boardColumns = 9;
-  int boardRows = 9;
-  char board[boardColumns][boardRows]{};
+  char board[9][9]{};
   ifstream file;
   file.open("go.txt");
 
-  for (int i = 0; i < boardRows; ++i) {
-    for (int j = 0; i < boardColumns; ++i) {
+  for (int i = 0; i < 9; ++i) {   // rows
+    for (int j = 0; i < 9; ++i) { // column
       int x;
       cin >> x;
       cout << x;
