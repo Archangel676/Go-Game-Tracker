@@ -10,7 +10,7 @@ int main()
   file.open("go.txt");
 
   for (int i = 0; i < 9; ++i) {   // rows
-    for (int j = 0; i < 9; ++i) { // column
+    for (int j = 0; i < 9; ++j) { // column
       file >> board[i][j];
       cout << board[i][j];
     }
