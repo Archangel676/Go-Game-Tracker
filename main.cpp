@@ -14,7 +14,7 @@ int main()
       file >> board[i][j];
       cout << board[i][j] << " ... ";
     }
-    cout << endl;
+    cout << "SPACE";
   }
   return 0;
 }
