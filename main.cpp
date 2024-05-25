@@ -11,9 +11,9 @@ int main()
 
   for (int i = 0; i < 9; ++i) {   // rows
     for (int j = 0; i < 9; ++i) { // column
-      int x;
-      cin >> x;
-      cout << x;
+      file >> board[i][j];
+      cout << board[i][j];
     }
   }
+  return 0;
 }
