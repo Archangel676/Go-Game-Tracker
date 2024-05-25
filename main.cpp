@@ -17,5 +17,11 @@ int main()
     }
     cout << endl;
   }
+
+  int startLocationX, startLocationY;
+  cin >> startLocationX >> startLocationY;
+  cout << "Start location is: (" << startLocationX << ", " << startLocationY
+       << ")";
+
   return 0;
 }
