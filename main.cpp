@@ -11,8 +11,9 @@ int main()
   file.open("go.txt");
 
   for (int i = 0; i < 9; ++i) { // rows
-    string row;
-    getline(file, row);
+    string rowData;
+    getline(file, rowData);
+    stringstream row(rowData);
 
     for (int j = 0; i < 9; ++j) { // column
       row >> board[i][j];
