@@ -1,4 +1,4 @@
-#include <ifstream>
+#include <fstream>
 #include <iostream>
 
 using namespace std;
@@ -13,7 +13,9 @@ int main()
 
   for (int i = 0; i < boardRows; ++i) {
     for (int j = 0; i < boardColumns; ++i) {
-      cin <<
+      int x;
+      cin << x;
+      cout << x;
     }
   }
 }
