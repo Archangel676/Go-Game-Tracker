@@ -14,7 +14,7 @@ int main()
   for (int i = 0; i < boardRows; ++i) {
     for (int j = 0; i < boardColumns; ++i) {
       int x;
-      cin << x;
+      cin >> x;
       cout << x;
     }
   }
