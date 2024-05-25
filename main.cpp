@@ -15,7 +15,7 @@ int main()
     getline(file, rowData);
     stringstream row(rowData);
 
-    for (int j = 0; i < 9; ++j) { // column
+    for (int j = 0; j < 9; ++j) { // column
       row >> board[i][j];
       cout << board[i][j] << " ... ";
     }
