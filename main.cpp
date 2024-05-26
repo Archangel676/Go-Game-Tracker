@@ -6,7 +6,7 @@ using namespace std;
 
 const int MAZE_SIZE = 9;
 
-void readInMaze(char maze[MAZE_SIZE][MAZE_SIZE])
+void readInBoard(char board[MAZE_SIZE][MAZE_SIZE])
 {
   ifstream file;
   file.open("go.txt");
