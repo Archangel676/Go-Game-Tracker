@@ -50,8 +50,8 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
     return groupNumber;
 
   else {
-    char uppercasePiece = toupper(currentPiece);
-    board[startRow][startCol] = uppercasePiece;
+    // char uppercasePiece = toupper(currentPiece);
+    // board[startRow][startCol] = uppercasePiece;
     return ++groupNumber;
   }
 }
@@ -64,6 +64,7 @@ int main()
   printBoard(board);
   getStartingLocation();
   getGroup(board, 1, 0);
+  printBoard(board); // see changes
 
   return 0;
 
