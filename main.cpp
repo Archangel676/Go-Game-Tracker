@@ -6,6 +6,7 @@
 using namespace std;
 
 const int MAZE_SIZE = 9;
+const int COORDINATES = 2;
 
 void readInBoard(char board[MAZE_SIZE][MAZE_SIZE])
 {
@@ -29,21 +30,22 @@ void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
   }
   cout << endl;
 }
-// std::stoi() and std::to_string()
-string getStartingLocation()
+
+void getStartingLocation(int startingLocation[COORDINATES])
 {
   int startRow, startCol;
   cout << "Enter row & column numbers (0-8) with a space in between: ";
   cin >> startRow >> startCol;
-  string output = to_string(startRow) + " " + to_string(startCol);
-  return output;
+  startingLocation[0] = startRow;
+  startingLocation[1] = startCol;
 }
 
-int getGroup(char board[MAZE_SIZE][MAZE_SIZE], string startLocation)
+int getGroup(char board[MAZE_SIZE][MAZE_SIZE],
+             int startingLocation[COORDINATES])
 {
-  int startRow, startCol;
-  stringstream s(startLocation);
-  s >> startRow >> startCol;
+  int startRow = startingLocation[0];
+  int startCol = startingLocation[1];
+  cout << startRow << startCol;
 
   int groupNumber = 0;
 
@@ -54,7 +56,8 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE], string startLocation)
   char currentPiece = board[startRow][startCol];
   if (currentPiece == '-')
     return groupNumber;
-
+  // else if (currentPiece != board[startRow][startCol])
+  //  return groupNumber;
   else {
     char uppercasePiece = static_cast<char>(toupper(currentPiece));
     board[startRow][startCol] = uppercasePiece;
@@ -65,11 +68,12 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE], string startLocation)
 int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
+  int startingLocation[COORDINATES] = {0, 0};
 
   readInBoard(board);
   printBoard(board);
-  string startLocation = getStartingLocation();
-  getGroup(board, startLocation);
+  getStartingLocation(&startingLocation[COORDINATES]);
+  getGroup(board, &startingLocation[COORDINATES]);
   printBoard(board); // see changes
 
   return 0;
