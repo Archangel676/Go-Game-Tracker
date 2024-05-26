@@ -4,26 +4,30 @@
 
 using namespace std;
 
-int main()
+const int MAZE_SIZE = 9;
+
+void readInMaze(char maze[MAZE_SIZE][MAZE_SIZE])
 {
-  char board[9][9]{};
   ifstream file;
   file.open("go.txt");
 
-  // filling to board
-  for (int i = 0; i < 9; ++i) {   // rows
-    for (int j = 0; j < 9; ++j) { // column
+  for (int i = 0; i < MAZE_SIZE; ++i) {   // rows
+    for (int j = 0; j < MAZE_SIZE; ++j) { // column
       file >> board[i][j];
       cout << board[i][j] << " ";
     }
     cout << endl;
   }
+}
+
+int main()
+{
+  char board[MAZE_SIZE][MAZE_SIZE]{};
 
   // getting starting location
-  int startLocationX, startLocationY;
-  cin >> startLocationX >> startLocationY;
-  cout << "Start location is: (" << startLocationX << ", " << startLocationY
-       << ")";
+  int startRow, startCol;
+  cin >> startRow >> startCol;
+  cout << "Start location is: (" << startRow << ", " << startCol << ")";
 
   return 0;
 
