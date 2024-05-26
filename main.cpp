@@ -68,7 +68,7 @@ int main()
   readInBoard(board);
   printBoard(board);
   string startLocation = getStartingLocation();
-  getGroup(board, 1, 0);
+  getGroup(board, startLocation);
   printBoard(board); // see changes
 
   return 0;
