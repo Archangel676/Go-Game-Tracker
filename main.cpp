@@ -20,6 +20,7 @@ void readInBoard(char board[MAZE_SIZE][MAZE_SIZE])
 
 void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
 {
+  cout << endl;
   for (int i = 0; i < MAZE_SIZE; ++i) {   // rows
     for (int j = 0; j < MAZE_SIZE; ++j) { // column
       cout << board[i][j] << " ";
