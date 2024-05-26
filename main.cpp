@@ -11,9 +11,16 @@ void readInBoard(char board[MAZE_SIZE][MAZE_SIZE])
   ifstream file;
   file.open("go.txt");
 
+  for (int i = 0; i < MAZE_SIZE; ++i) { // rows
+    for (int j = 0; j < MAZE_SIZE; ++j) // column
+      file >> board[i][j];
+  }
+}
+
+void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
+{
   for (int i = 0; i < MAZE_SIZE; ++i) {   // rows
     for (int j = 0; j < MAZE_SIZE; ++j) { // column
-      file >> board[i][j];
       cout << board[i][j] << " ";
     }
     cout << endl;
@@ -23,6 +30,9 @@ void readInBoard(char board[MAZE_SIZE][MAZE_SIZE])
 int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
+
+  readInBoard(board);
+  printBoard(board);
 
   // getting starting location
   int startRow, startCol;
