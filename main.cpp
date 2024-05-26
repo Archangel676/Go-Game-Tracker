@@ -25,6 +25,7 @@ void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
     }
     cout << endl;
   }
+  cout << endl;
 }
 
 void getStartingLocation()
