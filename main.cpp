@@ -34,7 +34,7 @@ void getStartingLocation()
   int startRow, startCol;
   cout << "Enter row & column numbers (0-8) with a space in between: ";
   cin >> startRow >> startCol;
-  cout << "Start location is: (" << startRow << ", " << startCol << ")";
+  cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
 }
 
 int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
@@ -50,8 +50,8 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
     return groupNumber;
 
   else {
-    // char uppercasePiece = toupper(currentPiece);
-    // board[startRow][startCol] = uppercasePiece;
+    char uppercasePiece = toupper(currentPiece);
+    board[startRow][startCol] = uppercasePiece;
     return ++groupNumber;
   }
 }
