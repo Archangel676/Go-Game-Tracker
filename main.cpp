@@ -28,17 +28,22 @@ void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
   }
   cout << endl;
 }
-
-void getStartingLocation()
+// std::stoi() and std::to_string()
+string getStartingLocation()
 {
   int startRow, startCol;
   cout << "Enter row & column numbers (0-8) with a space in between: ";
   cin >> startRow >> startCol;
-  cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
+  string output = to_string(startRow) + " " + to_string(startCol);
+  return output;
 }
 
-int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
+int getGroup(char board[MAZE_SIZE][MAZE_SIZE], string startLocation)
 {
+  int startRow, startCol;
+  stringstream s(startLocation);
+  s >> startRow >> startCol;
+
   int groupNumber = 0;
 
   if (startCol < 0 || startRow < 0 || startCol >= MAZE_SIZE
@@ -62,7 +67,7 @@ int main()
 
   readInBoard(board);
   printBoard(board);
-  getStartingLocation();
+  string startLocation = getStartingLocation();
   getGroup(board, 1, 0);
   printBoard(board); // see changes
 
