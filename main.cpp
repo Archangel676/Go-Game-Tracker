@@ -27,17 +27,22 @@ void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
   }
 }
 
+void getStartingLocation()
+{
+  // getting starting location
+  int startRow, startCol;
+  cout << "Enter row & col numbers (1-9) with space between: ";
+  cin >> startRow >> startCol;
+  cout << "Start location is: (" << startRow << ", " << startCol << ")";
+}
+
 int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
 
   readInBoard(board);
   printBoard(board);
-
-  // getting starting location
-  int startRow, startCol;
-  cin >> startRow >> startCol;
-  cout << "Start location is: (" << startRow << ", " << startCol << ")";
+  getStartingLocation();
 
   return 0;
 
