@@ -50,7 +50,7 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
     return groupNumber;
 
   else {
-    char uppercasePiece = toupper(currentPiece);
+    char uppercasePiece = static_cast<char>(toupper(currentPiece));
     board[startRow][startCol] = uppercasePiece;
     return ++groupNumber;
   }
