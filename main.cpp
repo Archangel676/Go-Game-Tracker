@@ -1,3 +1,4 @@
+#include <cctype>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -30,11 +31,29 @@ void printBoard(const char board[MAZE_SIZE][MAZE_SIZE])
 
 void getStartingLocation()
 {
-  // getting starting location
   int startRow, startCol;
-  cout << "Enter row & col numbers (1-9) with space between: ";
+  cout << "Enter row & column numbers (0-8) with a space in between: ";
   cin >> startRow >> startCol;
   cout << "Start location is: (" << startRow << ", " << startCol << ")";
+}
+
+int getGroup(char board[MAZE_SIZE][MAZE_SIZE], int startRow, int startCol)
+{
+  int groupNumber = 0;
+
+  if (startCol < 0 || startRow < 0 || startCol >= MAZE_SIZE
+      || startRow >= MAZE_SIZE)
+    return groupNumber;
+
+  char currentPiece = board[startRow][startCol];
+  if (currentPiece == '-')
+    return groupNumber;
+
+  else {
+    char uppercasePiece = toupper(currentPiece);
+    board[startRow][startCol] = uppercasePiece;
+    return ++groupNumber;
+  }
 }
 
 int main()
@@ -44,12 +63,12 @@ int main()
   readInBoard(board);
   printBoard(board);
   getStartingLocation();
+  getGroup(board, 1, 0);
 
   return 0;
 
   // TO-DO
   // Use recursion for determining the size of the group and number of liberties
-  // Read in a row and column from the console indicating a starting location.
 
   // It should print out:
   //  1) the board, with the squares that are in the group made uppercase
