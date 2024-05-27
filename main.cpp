@@ -72,8 +72,8 @@ int main()
 
   readInBoard(board);
   printBoard(board);
-  getStartingLocation(&startingLocation[COORDINATES]);
-  getGroup(board, &startingLocation[COORDINATES]);
+  getStartingLocation(startingLocation);
+  int groupSize = getGroup(board, startingLocation);
   printBoard(board); // see changes
 
   return 0;
