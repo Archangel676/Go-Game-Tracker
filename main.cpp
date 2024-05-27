@@ -80,6 +80,14 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
   }
 }
 
+// add a visited function
+
+// - is 45
+// B is 66
+// W is 87
+// b is 98
+// w is 119
+
 int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
