@@ -80,7 +80,8 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
   }
 }
 
-// add a visited function
+// add a visited function???
+// Check discord
 
 // - is 45
 // B is 66
