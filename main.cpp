@@ -40,25 +40,23 @@ void getStartingLocation(int startingLocation[COORDINATES])
   startingLocation[1] = startCol;
 }
 
-int getGroup(char board[MAZE_SIZE][MAZE_SIZE],
-             int startingLocation[COORDINATES])
+void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
+              int startingLocation[COORDINATES], int groupNumber)
 {
   int startRow = startingLocation[0];
   int startCol = startingLocation[1];
   cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
 
-  int groupNumber = 0;
-
   if (startCol < 0 || startRow < 0 || startCol >= MAZE_SIZE
       || startRow >= MAZE_SIZE)
-    return groupNumber;
+    return;
 
   char currentPiece = board[startRow][startCol];
   if (currentPiece == '-')
-    return groupNumber;
+    return;
 
   else if (currentPiece != board[startRow][startCol])
-    return groupNumber;
+    return;
 
   else {
     char uppercasePiece = static_cast<char>(toupper(currentPiece));
@@ -66,18 +64,18 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE],
     ++groupNumber;
 
     startingLocation[1] = startCol - 1;
-    getGroup(board, startingLocation); // left
+    getGroup(board, startingLocation, groupNumber); // left
 
     startingLocation[0] = startRow + 1;
-    getGroup(board, startingLocation); // down
+    getGroup(board, startingLocation, groupNumber); // down
 
     startingLocation[1] = startCol + 1;
-    getGroup(board, startingLocation); // right
+    getGroup(board, startingLocation, groupNumber); // right
 
     startingLocation[0] = startRow - 1;
-    getGroup(board, startingLocation); // up
+    getGroup(board, startingLocation, groupNumber); // up
 
-    return groupNumber;
+    return;
   }
 }
 
@@ -85,11 +83,13 @@ int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
   int startingLocation[COORDINATES] = {0, 0};
+  int groupNumber = 0;
 
   readInBoard(board);
   printBoard(board);
   getStartingLocation(startingLocation);
-  int groupSize = getGroup(board, startingLocation);
+  int groupSize = getGroup(board, startingLocation, groupNumber);
+  cout << "The size of our group is: " << groupSize << endl;
   printBoard(board); // see changes
 
   return 0;
