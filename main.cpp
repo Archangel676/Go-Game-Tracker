@@ -56,12 +56,28 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE],
   char currentPiece = board[startRow][startCol];
   if (currentPiece == '-')
     return groupNumber;
+
   else if (currentPiece != board[startRow][startCol])
     return groupNumber;
+
   else {
     char uppercasePiece = static_cast<char>(toupper(currentPiece));
     board[startRow][startCol] = uppercasePiece;
-    return ++groupNumber;
+    ++groupNumber;
+
+    startingLocation[1] = startCol - 1;
+    getGroup(board, startingLocation); // left
+
+    startingLocation[0] = startRow + 1;
+    getGroup(board, startingLocation); // down
+
+    startingLocation[1] = startCol + 1;
+    getGroup(board, startingLocation); // right
+
+    startingLocation[0] = startRow - 1;
+    getGroup(board, startingLocation); // up
+
+    return groupNumber;
   }
 }
 
