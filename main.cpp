@@ -89,6 +89,11 @@ int main()
   readInBoard(board);
   printBoard(board);
   getStartingLocation(startingLocation);
+  if (board[startingLocation[0]][startingLocation[1]] == '-') {
+    cout << "Invalid starting location. Please try again." << endl;
+    getStartingLocation(startingLocation);
+  }
+
   getGroup(board, startingLocation, groupNumber);
   cout << "The size of our group is: " << groupNumber << endl;
   printBoard(board); // see changes
