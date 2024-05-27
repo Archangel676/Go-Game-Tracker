@@ -72,6 +72,7 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
     startingLocation[1] = startCol + 1;
     getGroup(board, startingLocation, groupNumber); // right
 
+    return;
     startingLocation[0] = startRow - 1;
     getGroup(board, startingLocation, groupNumber); // up
 
