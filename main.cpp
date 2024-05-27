@@ -45,7 +45,7 @@ int getGroup(char board[MAZE_SIZE][MAZE_SIZE],
 {
   int startRow = startingLocation[0];
   int startCol = startingLocation[1];
-  cout << startRow << startCol;
+  cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
 
   int groupNumber = 0;
 
