@@ -88,8 +88,8 @@ int main()
   readInBoard(board);
   printBoard(board);
   getStartingLocation(startingLocation);
-  int groupSize = getGroup(board, startingLocation, groupNumber);
-  cout << "The size of our group is: " << groupSize << endl;
+  getGroup(board, startingLocation, groupNumber);
+  cout << "The size of our group is: " << groupNumber << endl;
   printBoard(board); // see changes
 
   return 0;
