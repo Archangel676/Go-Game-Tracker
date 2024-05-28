@@ -49,20 +49,14 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
               char originalPiece, int& groupNumber,
               bool visited[MAZE_SIZE][MAZE_SIZE])
 {
-  // cout << "Start location is: (" << row << ", " << col << ")" << endl;
-
-  // char currentPiece = board[row][col];
   if (!isValidPosition(row, col) || board[row][col] != originalPiece
       || visited[row][col]) {
-    // cout << "          Empty space - Returning" << endl;
     return;
   }
 
   visited[row][col] = true;
   board[row][col] = static_cast<char>(toupper(board[row][col]));
   ++groupNumber;
-
-  // cout << "          Matches group..." << endl;
 
   getGroup(board, row - 1, col, originalPiece, groupNumber, visited); // up
 
@@ -130,13 +124,9 @@ int main()
 
   int liberties = getLiberties(board, visited);
 
-  printBoard(board); // see changes
+  printBoard(board);
   cout << "The size of the group is: " << groupNumber << endl;
   cout << "The number of liberties is: " << liberties << endl;
 
   return 0;
-
-  //  and the liberties for the group marked as *'s;
-
-  // 3) how many liberties there are.
 }
