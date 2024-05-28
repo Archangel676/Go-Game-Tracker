@@ -120,7 +120,7 @@ int main()
   if (!isValidPosition(startRow, startCol)
       || board[startRow][startCol] == '-') {
     cout << "Invalid starting location. Please try again." << endl;
-    getStartingLocation(startingLocation);
+    return;
   }
 
   int groupNumber = 0;
