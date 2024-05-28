@@ -84,16 +84,20 @@ int getLiberties(char board[MAZE_SIZE][MAZE_SIZE],
     for (int col = 0; col < MAZE_SIZE; ++col) {
       if (visited[row][col]) {
         if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
-          cout << "liberties up";
+          board[row - 1][col] = '*';
+          ++liberties;
         }
         if (isValidPosition(row + 1, col) && board[row + 1][col] == '-') {
-          cout << "liberties down";
+          board[row + 1][col] = '*';
+          ++liberties;
         }
         if (isValidPosition(row, col - 1) && board[row][col - 1] == '-') {
-          cout << "liberties left";
+          board[row][col - 1] = '*';
+          ++liberties;
         }
         if (isValidPosition(row, col + 1) && board[row][col + 1] == '-') {
-          cout << "liberties right";
+          board[row][col + 1] = '*';
+          ++liberties;
         }
       }
     }
