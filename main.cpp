@@ -83,18 +83,17 @@ int getLiberties(char board[MAZE_SIZE][MAZE_SIZE],
   for (int row = 0; row < MAZE_SIZE; ++row) {
     for (int col = 0; col < MAZE_SIZE; ++col) {
       if (visited[row][col]) {
-        // getGroup(board, , originalPiece, groupNumber, visited); // up
-        // getGroup(board, , col, originalPiece, groupNumber, visited);
-        // // down getGroup(board, row, , originalPiece, groupNumber,
-        // visited); // left getGroup(board, row, , originalPiece,
-        // groupNumber, visited); // right
         if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
+          cout << "liberties up";
         }
         if (isValidPosition(row + 1, col) && board[row + 1][col] == '-') {
+          cout << "liberties down";
         }
         if (isValidPosition(row, col - 1) && board[row][col - 1] == '-') {
+          cout << "liberties left";
         }
         if (isValidPosition(row, col + 1) && board[row][col + 1] == '-') {
+          cout << "liberties right";
         }
       }
     }
