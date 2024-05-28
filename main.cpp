@@ -60,7 +60,7 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
   }
 
   visited[row][col] = true;
-  board[row][col] = toupper(board[row][col]);
+  board[row][col] = static_cast<char>(toupper(board[row][col]));
   ++groupNumber;
 
   cout << "          Matches group..." << endl;
@@ -104,7 +104,9 @@ int main()
   }
 
   int groupNumber = 0;
-  getGroup(board, startingLocation, groupNumber);
+  bool visited[MAZE_SIZE][MAZE_SIZE] = {false};
+  getGroup(board, startRow, startCol, board[startRow][startCol], groupNumber,
+           visited);
   cout << "The size of our group is: " << groupNumber << endl;
   printBoard(board); // see changes
 
