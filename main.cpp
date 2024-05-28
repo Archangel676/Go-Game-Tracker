@@ -47,7 +47,7 @@ bool isValidPosition(int row, int col)
 // char board[MAZE_SIZE][MAZE_SIZE], int row, int col, char )
 
 void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
-              char originalPiece, int& groupSize,
+              char originalPiece, int& groupNumber,
               bool visited[MAZE_SIZE][MAZE_SIZE])
 {
   cout << "Start location is: (" << row << ", " << col << ")" << endl;
@@ -61,17 +61,17 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
 
   visited[row][col] = true;
   board[row][col] = toupper(board[row][col]);
-  ++groupSize;
+  ++groupNumber;
 
   cout << "          Matches group..." << endl;
 
-  getGroup(board, row - 1, col, originalPiece, groupSize, visited); // up
+  getGroup(board, row - 1, col, originalPiece, groupNumber, visited); // up
 
-  getGroup(board, row + 1, col, originalPiece, groupSize, visited); // down
+  getGroup(board, row + 1, col, originalPiece, groupNumber, visited); // down
 
-  getGroup(board, row, col - 1, originalPiece, groupSize, visited); // left
+  getGroup(board, row, col - 1, originalPiece, groupNumber, visited); // left
 
-  getGroup(board, row, col + 1, originalPiece, groupSize, visited); // right
+  getGroup(board, row, col + 1, originalPiece, groupNumber, visited); // right
 
   return;
 }
@@ -103,7 +103,7 @@ int main()
     getStartingLocation(startingLocation);
   }
 
-  // int groupNumber = 0;
+  int groupNumber = 0;
   getGroup(board, startingLocation, groupNumber);
   cout << "The size of our group is: " << groupNumber << endl;
   printBoard(board); // see changes
