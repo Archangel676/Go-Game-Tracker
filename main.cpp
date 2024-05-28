@@ -89,7 +89,6 @@ int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
   int startingLocation[COORDINATES] = {0, 0};
-  int groupNumber = 0;
 
   readInBoard(board);
   printBoard(board);
@@ -98,11 +97,13 @@ int main()
   int startRow = startingLocation[0];
   int startCol = startingLocation[1];
 
-  if (board[startRow][startCol] == '-') {
+  if (!isValidPosition(startRow, startCol)
+      || board[startRow][startCol] == '-') {
     cout << "Invalid starting location. Please try again." << endl;
     getStartingLocation(startingLocation);
   }
 
+  // int groupNumber = 0;
   getGroup(board, startingLocation, groupNumber);
   cout << "The size of our group is: " << groupNumber << endl;
   printBoard(board); // see changes
