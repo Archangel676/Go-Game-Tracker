@@ -44,18 +44,17 @@ bool isValidPosition(int row, int col)
 {
   return row >= 0 && row < MAZE_SIZE && col >= 0 && col < MAZE_SIZE;
 }
-// char board[MAZE_SIZE][MAZE_SIZE], int row, int col, char )
 
 void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
               char originalPiece, int& groupNumber,
               bool visited[MAZE_SIZE][MAZE_SIZE])
 {
-  cout << "Start location is: (" << row << ", " << col << ")" << endl;
+  // cout << "Start location is: (" << row << ", " << col << ")" << endl;
 
   // char currentPiece = board[row][col];
   if (!isValidPosition(row, col) || board[row][col] != originalPiece
       || visited[row][col]) {
-    cout << "          Empty space - Returning" << endl;
+    // cout << "          Empty space - Returning" << endl;
     return;
   }
 
@@ -63,7 +62,7 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
   board[row][col] = static_cast<char>(toupper(board[row][col]));
   ++groupNumber;
 
-  cout << "          Matches group..." << endl;
+  // cout << "          Matches group..." << endl;
 
   getGroup(board, row - 1, col, originalPiece, groupNumber, visited); // up
 
@@ -75,15 +74,6 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
 
   return;
 }
-
-// add a visited function???
-// Check discord
-
-// - is 45
-// B is 66
-// W is 87
-// b is 98
-// w is 119
 
 int main()
 {
