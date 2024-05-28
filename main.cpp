@@ -75,6 +75,20 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
   return;
 }
 
+int getLiberties(char board[MAZE_SIZE][MAZE_SIZE],
+                 bool visited[MAZE_SIZE][MAZE_SIZE])
+{
+  int liberties = 0;
+
+  for (int row = 0; row < MAZE_SIZE; ++row) {
+    for (int col = 0; col < MAZE_SIZE; ++col) {
+      if (visited[row][col]) {
+      }
+    }
+  }
+  return liberties;
+}
+
 int main()
 {
   char board[MAZE_SIZE][MAZE_SIZE]{};
