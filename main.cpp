@@ -124,9 +124,11 @@ int main()
   getGroup(board, startRow, startCol, board[startRow][startCol], groupNumber,
            visited);
 
+  int liberties = getLiberties(board, visited);
+
   printBoard(board); // see changes
   cout << "The size of the group is: " << groupNumber << endl;
-  cout << "The number of liberties is: idk" << endl;
+  cout << "The number of liberties is: " << liberties << endl;
 
   return 0;
 
