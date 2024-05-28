@@ -97,8 +97,10 @@ int main()
   bool visited[MAZE_SIZE][MAZE_SIZE] = {false};
   getGroup(board, startRow, startCol, board[startRow][startCol], groupNumber,
            visited);
-  cout << "The size of our group is: " << groupNumber << endl;
+
   printBoard(board); // see changes
+  cout << "The size of the group is: " << groupNumber << endl;
+  cout << "The number of liberties is: idk" << endl;
 
   return 0;
 
