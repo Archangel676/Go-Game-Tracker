@@ -48,17 +48,24 @@ void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
   cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
 
   if (startCol < 0 || startRow < 0 || startCol >= MAZE_SIZE
-      || startRow >= MAZE_SIZE)
+      || startRow >= MAZE_SIZE) {
+    cout << "          Out of bounds - Returning" << endl;
     return;
+  }
 
   char currentPiece = board[startRow][startCol];
-  if (currentPiece == '-')
+  if (currentPiece == '-') {
+    cout << "          Empty space - Returning" << endl;
     return;
+  }
 
-  else if (currentPiece != board[startRow][startCol])
+  else if (currentPiece != board[startRow][startCol]) {
+    cout << "          Wrong group - Returning" << endl;
     return;
+  }
 
   else {
+    cout << "          Matches group..." << endl;
     char uppercasePiece = static_cast<char>(toupper(currentPiece));
     board[startRow][startCol] = uppercasePiece;
     ++groupNumber;
