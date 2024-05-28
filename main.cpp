@@ -40,51 +40,40 @@ void getStartingLocation(int startingLocation[COORDINATES])
   startingLocation[1] = startCol;
 }
 
-void getGroup(char board[MAZE_SIZE][MAZE_SIZE],
-              int startingLocation[COORDINATES], int groupNumber)
+bool isValidPosition(int row, int col)
 {
-  int startRow = startingLocation[0];
-  int startCol = startingLocation[1];
-  cout << "Start location is: (" << startRow << ", " << startCol << ")" << endl;
+  return row >= 0 && row < MAZE_SIZE && col >= 0 && col < MAZE_SIZE;
+}
+// char board[MAZE_SIZE][MAZE_SIZE], int row, int col, char )
 
-  if (startCol < 0 || startRow < 0 || startCol >= MAZE_SIZE
-      || startRow >= MAZE_SIZE) {
-    cout << "          Out of bounds - Returning" << endl;
-    return;
-  }
+void getGroup(char board[MAZE_SIZE][MAZE_SIZE], int row, int col,
+              char originalPiece, int& groupSize,
+              bool visited[MAZE_SIZE][MAZE_SIZE])
+{
+  cout << "Start location is: (" << row << ", " << col << ")" << endl;
 
-  char currentPiece = board[startRow][startCol];
-  if (currentPiece == '-') {
+  // char currentPiece = board[row][col];
+  if (!isValidPosition(row, col) || board[row][col] != originalPiece
+      || visited[row][col]) {
     cout << "          Empty space - Returning" << endl;
     return;
   }
 
-  else if (currentPiece != board[startRow][startCol]) {
-    cout << "          Wrong group - Returning" << endl;
-    return;
-  }
+  visited[row][col] = true;
+  board[row][col] = toupper(board[row][col]);
+  ++groupSize;
 
-  else {
-    cout << "          Matches group..." << endl;
-    char uppercasePiece = static_cast<char>(toupper(currentPiece));
-    board[startRow][startCol] = uppercasePiece;
-    ++groupNumber;
+  cout << "          Matches group..." << endl;
 
-    startingLocation[1] = startCol - 1;
-    getGroup(board, startingLocation, groupNumber); // left
+  getGroup(board, row - 1, col, originalPiece, groupSize, visited); // up
 
-    startingLocation[0] = startRow + 1;
-    getGroup(board, startingLocation, groupNumber); // down
+  getGroup(board, row + 1, col, originalPiece, groupSize, visited); // down
 
-    startingLocation[1] = startCol + 1;
-    getGroup(board, startingLocation, groupNumber); // right
+  getGroup(board, row, col - 1, originalPiece, groupSize, visited); // left
 
-    return;
-    startingLocation[0] = startRow - 1;
-    getGroup(board, startingLocation, groupNumber); // up
+  getGroup(board, row, col + 1, originalPiece, groupSize, visited); // right
 
-    return;
-  }
+  return;
 }
 
 // add a visited function???
@@ -105,7 +94,11 @@ int main()
   readInBoard(board);
   printBoard(board);
   getStartingLocation(startingLocation);
-  if (board[startingLocation[0]][startingLocation[1]] == '-') {
+
+  int startRow = startingLocation[0];
+  int startCol = startingLocation[1];
+
+  if (board[startRow][startCol] == '-') {
     cout << "Invalid starting location. Please try again." << endl;
     getStartingLocation(startingLocation);
   }
