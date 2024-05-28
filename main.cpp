@@ -83,6 +83,19 @@ int getLiberties(char board[MAZE_SIZE][MAZE_SIZE],
   for (int row = 0; row < MAZE_SIZE; ++row) {
     for (int col = 0; col < MAZE_SIZE; ++col) {
       if (visited[row][col]) {
+        // getGroup(board, , originalPiece, groupNumber, visited); // up
+        // getGroup(board, row + 1, col, originalPiece, groupNumber, visited);
+        // // down getGroup(board, row, col - 1, originalPiece, groupNumber,
+        // visited); // left getGroup(board, row, col + 1, originalPiece,
+        // groupNumber, visited); // right
+        if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
+        }
+        if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
+        }
+        if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
+        }
+        if (isValidPosition(row - 1, col) && board[row - 1][col] == '-') {
+        }
       }
     }
   }
