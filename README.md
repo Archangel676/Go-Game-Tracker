@@ -14,12 +14,12 @@ If a group has 0 liberties, it is captured and removed from the board.
 
 The program should read in a row and column from the console indicating a starting location. 
 It should print out: 
-	1) the board, with the squares that are in the group made uppercase and the liberties for the group marked as *'s; 
-	2) the number of pieces in the group based at the starting location; 
-	3) how many liberties there are. If the row, col the user enters does not have a piece in it (is a - instead of w or b), print an error message.
+- The board, with the squares that are in the group made uppercase and the liberties for the group marked as *'s; 
+- The number of pieces in the group based at the starting location; 
+- How many liberties there are. If the row, col the user enters does not have a piece in it (is a - instead of w or b), print an error message.
 
 The program should make use of recursion for determining the size of the group and number of liberties.
-	*Using recursion for determining the number of liberties is still a work in progress.
+- Using recursion for determining the number of liberties is still a work in progress.
 
 Parameters must be used to pass information from one recursive call to another. No global variables allowed (constants are OK). The program can not make a class that contains your functions.
 
